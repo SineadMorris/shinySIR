@@ -3,7 +3,7 @@
 shinySIR
 ========
 
-`shinySIR` provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R. Models are inspired by those featured in the references below \[1-3\]; code is inspired by \[3\].
+`shinySIR` provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R. Models are inspired by those featured in the references below \[1-3\]; code for the original SIR example was inspired by \[3\].
 
 Basic information
 -----------------
