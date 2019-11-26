@@ -1,0 +1,4 @@
+inst/doc
+^test_shinySIR_user\.R$
+^test_shinySIR_builtin\.R$
+^test_run_shiny\.R$

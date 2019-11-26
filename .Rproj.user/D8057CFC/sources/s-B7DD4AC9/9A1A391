@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574522320982.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "9A1A391",
+    "lastKnownWriteTime" : 1574618937,
+    "last_content_update" : 1574618937967,
+    "path" : "~/Dropbox/Shiny/shinySIR/R/models.R",
+    "project_path" : "R/models.R",
+    "properties" : {
+        "cursorPosition" : "91,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

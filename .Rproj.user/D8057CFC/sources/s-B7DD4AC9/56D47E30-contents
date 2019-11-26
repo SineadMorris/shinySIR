@@ -1,0 +1,45 @@
+require(shinySIR)
+
+mySIRS <- function(t, y, parms) {
+
+    # Parameter manipulations
+    gamma <- 1/parms["Ip"]
+
+    beta <- parms["R0"] * gamma / parms["N"]
+
+    # Change in Susceptibles
+    dS <- - beta * y["S"] * y["I"] +
+        parms["delta"] * y["R"]
+
+    # Change in Infecteds
+    dI <- beta * y["S"] * y["I"] -
+        gamma * y["I"]
+
+    dR <- gamma * y["I"] - parms["delta"] * y["R"]
+
+    return(list(c(dS, dI, dR)))
+
+}
+
+# Should work
+run_shiny(model = "SIRS", neweqns = mySIRS,
+           parm0 = c(R0 = 3, Ip = 7, mu = 0.25/365, delta = 0.1),
+           parm_names = c("R0", "Infectious period", "Birth rate", "Loss of immunity"),
+           parm_min = c(R0 = 0, Ip = 1, mu = 0, delta = 0.01),
+           parm_max = c(R0 = 20, Ip = 21, mu = 1/365, delta = 1))
+
+
+# Should get error about no eqns supplied
+run_shiny(model = "SIRS",
+           parm0 = c(R0 = 3, Ip = 7, mu = 0.25/365, delta = 0.1),
+           parm_names = c("R0", "Infectious period", "Birth rate", "Loss of immunity"),
+           parm_min = c(R0 = 0, Ip = 1, mu = 0, delta = 0.01),
+           parm_max = c(R0 = 20, Ip = 21, mu = 1/365, delta = 1))
+
+
+# Should get error about model name
+run_shiny(neweqns = mySIRS,
+           parm0 = c(R0 = 3, Ip = 7, mu = 0.25/365, delta = 0.1),
+           parm_names = c("R0", "Infectious period", "Birth rate", "Loss of immunity"),
+           parm_min = c(R0 = 0, Ip = 1, mu = 0, delta = 0.01),
+           parm_max = c(R0 = 20, Ip = 21, mu = 1/365, delta = 1))

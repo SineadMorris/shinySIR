@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574523444672.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "5C4F3DAE",
+    "lastKnownWriteTime" : 1574775885,
+    "last_content_update" : 1574775885707,
+    "path" : "~/Dropbox/Shiny/shinySIR/R/plotting.R",
+    "project_path" : "R/plotting.R",
+    "properties" : {
+        "cursorPosition" : "6,165",
+        "scrollLine" : "0",
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

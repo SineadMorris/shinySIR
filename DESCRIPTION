@@ -1,0 +1,25 @@
+Package: shinySIR
+Type: Package
+Title: Interactive plotting for mathematical models of infectious disease spread.
+Version: 0.1.0
+Date: 2019-11-23
+Authors@R: person("Sinead E.", "Morris", role = c("aut", "cre"),
+		   email = "sinead.morris@columbia.edu",
+		   comment = c(ORCID = "0000-0001-8626-1698"))
+Maintainer: Sinead E. Morris <sinead.morris@columbia.edu>
+Description: This package provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Depends: 
+    dplyr (>= 0.8.0.1),
+    tidyr (>= 0.8.3),
+    ggplot2 (>= 3.1.1),
+    shiny (>= 1.3.2),
+    deSolve (>= 1.2.1)
+Suggests:
+    knitr (>= 1.22), 
+    rmarkdown (>= 1.12),
+    testthat (>= 2.2.0)
+VignetteBuilder: knitr

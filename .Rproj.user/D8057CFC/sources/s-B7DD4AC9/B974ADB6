@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574780325794.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B974ADB6",
+    "lastKnownWriteTime" : 1574783064,
+    "last_content_update" : 1574783064048,
+    "path" : "~/Dropbox/Shiny/shinySIR/test_shinySIR_user.R",
+    "project_path" : "test_shinySIR_user.R",
+    "properties" : {
+        "cursorPosition" : "19,0",
+        "scrollLine" : "14"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,44 @@
+---
+title: "Vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE, echo = TRUE, fig.height = 6, fig.width = 8, message = FALSE, warning = FALSE
+)
+```
+
+```{r setup}
+library(shinySIR)
+```
+
+## Citing this package
+
+Citation information can be found using `citation("shinySIR")`.
+
+
+
+## Getting further information
+
+If you encounter any bugs related to this package please contact the package author directly. Further details on the mathematical theory can be found in the references cited below. 
+
+
+## The simple SIR model
+
+
+## Quick Start Example
+
+
+```{r SIR, eval = FALSE}
+run_shiny(model = "SIR")
+
+```
+
+![](../shinySIRscreenshot.png){ width=100% }
+
+
