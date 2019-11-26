@@ -3,7 +3,7 @@
 shinySIR
 ========
 
-`shinySIR` provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R.
+`shinySIR` provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R. Models are inspired by those featured in the references below \[1-3\]; code is inspired by \[3\].
 
 Basic information
 -----------------
@@ -18,7 +18,7 @@ Citation information can be found with `citation("shinySIR")`.
 
 ###### Getting help
 
-If you encounter any bugs related to this package please contact the author directly. Additional descriptions of the mathematical theory and package functionality can be found in the vignette. Further details on the mathematical theory can also be found in the references listed below.
+If you encounter any bugs related to this package please contact the author directly. Additional descriptions of the mathematical theory and package functionality can be found in the vignette. Further details on the mathematical theory can also be found in the references listed below \[1-3\].
 
 Quick start example
 -------------------
@@ -84,6 +84,8 @@ run_shiny(model = "SIRS (w/out demography)", neweqns = mySIRS,
 References
 ----------
 
-MJ Keeling and P Rohani (2008) Modeling Infectious Diseases in Humans and Animals. Princeton University Press.
+1.  RM Anderson and R May (1992) Infectious Diseases of Humans: Dynamics and Control. Oxford Science Publications.
 
-RM Anderson and R May (1992) Infectious Diseases of Humans: Dynamics and Control. Oxford Science Publications.
+2.  MJ Keeling and P Rohani (2008) Modeling Infectious Diseases in Humans and Animals. Princeton University Press.
+
+3.  ON Bjornstad (2018) Epidemics: Models and Data using R. Springer.

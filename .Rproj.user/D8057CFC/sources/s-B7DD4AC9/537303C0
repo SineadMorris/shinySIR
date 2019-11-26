@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "537303C0",
-    "lastKnownWriteTime" : 1574784424,
-    "last_content_update" : 1574784424768,
+    "lastKnownWriteTime" : 1574785350,
+    "last_content_update" : 1574785350621,
     "path" : "~/Dropbox/Shiny/shinySIR/README.Rmd",
     "project_path" : "README.Rmd",
     "properties" : {
-        "cursorPosition" : "29,278",
-        "scrollLine" : "7"
+        "cursorPosition" : "18,0",
+        "scrollLine" : "0"
     },
     "relative_order" : 8,
     "source_on_save" : false,
