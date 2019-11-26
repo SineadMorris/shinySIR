@@ -1,4 +1,0 @@
-library(shiny)
-library(shinySIR)
-
-run_shiny(model = "SIR")
