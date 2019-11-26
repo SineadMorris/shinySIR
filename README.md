@@ -18,7 +18,7 @@ Citation information can be found with `citation("shinySIR")`.
 
 ###### Getting help
 
-If you encounter any bugs related to this package please contact the author directly. Additional descriptions of the mathematical theory and package functionality can be found in the vignette. Further details on the mathematical theory can also be found in the references cited below.
+If you encounter any bugs related to this package please contact the author directly. Additional descriptions of the mathematical theory and package functionality can be found in the vignette. Further details on the mathematical theory can also be found in the references listed below.
 
 Quick start example
 -------------------
@@ -80,3 +80,10 @@ run_shiny(model = "SIRS (w/out demography)", neweqns = mySIRS,
 ```
 
 <img src="shinySIRSscreenshot.png" style="width:100.0%" />
+
+References
+----------
+
+MJ Keeling and P Rohani (2008) Modeling Infectious Diseases in Humans and Animals. Princeton University Press.
+
+RM Anderson and R May (1992) Infectious Diseases of Humans: Dynamics and Control. Oxford Science Publications.

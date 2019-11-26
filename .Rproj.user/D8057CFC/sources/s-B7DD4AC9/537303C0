@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "4053775115",
+    "hash" : "0",
     "id" : "537303C0",
-    "lastKnownWriteTime" : 1574783104,
-    "last_content_update" : 1574783104545,
+    "lastKnownWriteTime" : 1574784424,
+    "last_content_update" : 1574784424768,
     "path" : "~/Dropbox/Shiny/shinySIR/README.Rmd",
     "project_path" : "README.Rmd",
     "properties" : {
-        "cursorPosition" : "64,6",
-        "scrollLine" : "56"
+        "cursorPosition" : "29,278",
+        "scrollLine" : "7"
     },
     "relative_order" : 8,
     "source_on_save" : false,
