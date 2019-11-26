@@ -25,15 +25,29 @@
 #'
 
 run_shiny <- function(model = "SIR", neweqns = NULL,
-                      ics = c(S = 9999, I = 1, R = 0),
+                      ics = NULL,
                       tstart = 0, timestep = 1, tmax = 365,
-                      parm0 = c(R0 = 3, Ip = 7, mu = round(0.25/365, 3)),
-                      parm_names = c("R0", "Infectious period", "Birth rate"),
-                      parm_min = c(R0 = 0, Ip = 1, mu = 0),
-                      parm_max = c(R0 = 20, Ip = 21, mu = round(10/365, 3)),
+                      parm0 = NULL,
+                      parm_names = NULL,
+                      parm_min = NULL,
+                      parm_max = NULL,
                       sigfigs = 4,
                       linesize = 1.2, textsize = 14, ...
                       ){
+
+    if (is.null(parm0) & is.null(neweqns)) {
+        params <- get_params(model)
+
+        parm0 <- params$parm0
+        parm_names <- params$parm_names
+
+        parm_min <- params$parm_min
+        parm_max <- params$parm_max
+    }
+
+    if (is.null(ics) & is.null(neweqns)) {
+        ics <- get_ics(model)
+    }
 
     parm0 <- signif(parm0, sigfigs)
     parm_min <- signif(parm_min, sigfigs)
@@ -93,11 +107,11 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
             times_vector <- seq(from = tstart, to = tmax, by = timestep)
 
             # Run ODE solver
-            SIRoutput <- solve_eqns(eqns, ics, times = times_vector, parms = parms_vector)
+            ODEoutput <- solve_eqns(eqns, ics, times = times_vector, parms = parms_vector)
 
             # Plot output
             # **** put factor order as it comes in ics - so user can control how presented in legend
-            plot_model(SIRoutput, linesize, textsize, levels = names(ics), ...)
+            plot_model(ODEoutput, linesize, textsize, levels = names(ics), ...)
         })
 
         output$table1 <- renderTable({
@@ -108,7 +122,7 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
             if(model == "SIR"){
                 data.frame(
                     gamma = 1/parms_vector["Ip"],
-                    beta = parms_vector["R0"] * ((1/parms_vector["Ip"]) + parms_vector["mu"]) / parms_vector["N"]
+                    beta = parms_vector["R0"] * (1/parms_vector["Ip"]) / parms_vector["N"]
                 )
             }
 

@@ -1,7 +1,7 @@
 #' Solve equations
 #'
 #' This function solves an ODE model using 'deSolve' and returns the output as a data frame.
-#' @param eqns name of the model to be solved. Examples include: SIR and SIR vacicnation.
+#' @param eqns name of the model to be solved. Examples include: SIR and SIR vaccination.
 #' @param ics named numeric vector specifying the initial conditions i.e. the initial values of all model variables.
 #' @param times numerical vector indicating the time points at which the equation should be solved.
 #' @param parms named numeric vector of parameter values.
