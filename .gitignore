@@ -1,4 +1,8 @@
 inst/doc
-^test_shinySIR_user\.R$
-^test_shinySIR_builtin\.R$
-^test_run_shiny\.R$
+test_shinySIR_user.R
+test_shinySIR_builtin.R
+test_run_shiny.R
+.Rproj.user
+shinySIR.Rproj
+.DS_Store
+
