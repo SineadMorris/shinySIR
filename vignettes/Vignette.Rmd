@@ -54,7 +54,7 @@ run_shiny(model = "SIR")
 ```
 
 
-![](shinySIRscreenshot.png){width = 100%}
+![](shinySIRscreenshot.png){width=700px}
 
 
 ## Model specification
@@ -99,12 +99,12 @@ run_shiny(model = "SIRS (w/out demography)", neweqns = mySIRS,
 ```
 
 
-![](shinySIRSscreenshot.png){ width=100% }
+![](shinySIRSscreenshot.png){width=700px}
 
 
 ## Built-in models
 
-Interactive plots can be generated for all built-in models using the `run_shiny()` function with the `model` argument. Starting parameters and parameter ranges will be specified by default, but these can be modified if desired.
+Interactive plots can be generated for all built-in models using the `run_shiny()` function with the `model` argument. Starting parameters and parameter ranges will be specified by default, but these can be modified if desired using the arguments `parm0`, `parm_names`, `parm_min`, and `parm_max` (described above). The built-in models are detailed below, with their corresponding equations, `model` arguments, and default parameter attributes.
 
 ### SIR
 
@@ -123,14 +123,14 @@ where $S, I$, and $R$, are the numbers of susceptible, infected, and recovered i
 
 * $\beta$ is the transmission rate and $\beta S I$ represents the number of susceptible individuals that become infected per day;
 * $\gamma$ is the recovery rate and $\gamma I$ is the number of infected individuals that recover per day;
-* $1\gamma$ is the infectious period i.e. the average duration of time an individual remains infected.
+* $1/\gamma$ is the infectious period i.e. the average duration of time an individual remains infected.
 
 An important quantity of any disease model is the the reproductive number, $R_0$, which represents the average number of secondary infections generated from one infectious individual in a completely susceptible population. For the SIR model, 
 
 $$R_0 = \beta N / \gamma, $$
 where $N = S + I + R$ is the total (constant) population size.
 
-To run the SIR model, $R_0$ and the infectious period are more intuitive parameters, we use these as inputs for the built-in SIR model
+To run the SIR model, $R_0$ and the infectious period are more intuitive parameters, we use these as inputs for the built-in SIR model.
 
 
 #### SIR with demography
