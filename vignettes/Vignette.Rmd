@@ -53,7 +53,9 @@ run_shiny(model = "SIR")
 
 ```
 
-![](../shinySIRscreenshot.png){ width=100% }
+
+![](shinySIRscreenshot.png){width = 100%}
+
 
 ## Model specification
 
@@ -97,12 +99,16 @@ run_shiny(model = "SIRS (w/out demography)", neweqns = mySIRS,
 ```
 
 
-![](../shinySIRSscreenshot.png){ width=100% }
+![](shinySIRSscreenshot.png){ width=100% }
 
 
 ## Built-in models
 
+Interactive plots can be generated for all built-in models using the `run_shiny()` function with the `model` argument. Starting parameters and parameter ranges will be specified by default, but these can be modified if desired.
+
 ### SIR
+
+`model = SIR`
 
 The simple SIR model (without births or deaths) is given by 
 
@@ -119,10 +125,17 @@ where $S, I$, and $R$, are the numbers of susceptible, infected, and recovered i
 * $\gamma$ is the recovery rate and $\gamma I$ is the number of infected individuals that recover per day;
 * $1\gamma$ is the infectious period i.e. the average duration of time an individual remains infected.
 
-An important quantity relatied to this model is the the reproductive number, $R_0$, which represents the average number of secondary infections generated from one infectious individual in a completely susceptible population.  
+An important quantity of any disease model is the the reproductive number, $R_0$, which represents the average number of secondary infections generated from one infectious individual in a completely susceptible population. For the SIR model, 
+
+$$R_0 = \beta N / \gamma, $$
+where $N = S + I + R$ is the total (constant) population size.
+
+To run the SIR model, $R_0$ and the infectious period are more intuitive parameters, we use these as inputs for the built-in SIR model
 
 
 #### SIR with demography
+
+`model = SIRbirths`
 
 $$\begin{align*}
 \frac{dS}{dt} &= \mu N -\beta S I - \mu S\\
@@ -133,6 +146,7 @@ $$\begin{align*}
 
 #### SIR with vaccination at birth
 
+`model = SIRvaccination`
 
 $$\begin{align*}
 \frac{dS}{dt} &= \mu N (1 - p) -\beta S I - \mu S\\

@@ -6,3 +6,5 @@ test_run_shiny.R
 shinySIR.Rproj
 .DS_Store
 
+doc
+Meta

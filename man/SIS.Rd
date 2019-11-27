@@ -2,8 +2,8 @@
 % Please edit documentation in R/models.R
 \name{SIS}
 \alias{SIS}
-\title{SIS model without no births, deaths, or vaccination.
-These equations describe the classic SIS model with constant population size, and no births or deaths.}
+\title{SIS model
+These equations describe the classic SIS model with no births or deaths.}
 \usage{
 SIS(t, y, parms)
 }
@@ -18,6 +18,6 @@ SIS(t, y, parms)
 equation list
 }
 \description{
-SIS model without no births, deaths, or vaccination.
-These equations describe the classic SIS model with constant population size, and no births or deaths.
+SIS model
+These equations describe the classic SIS model with no births or deaths.
 }

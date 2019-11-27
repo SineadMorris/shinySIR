@@ -4,6 +4,8 @@
 ^test_shinySIR_builtin\.R$
 ^test_run_shiny\.R$
 ^README\.Rmd$
-^shinySIRscreenshot$
-^shinySIRSscreenshot$
 ^\.travis\.yml$
+^doc$
+^Meta$
+^shinySIRscreenshot
+^shinySIRSscreenshot

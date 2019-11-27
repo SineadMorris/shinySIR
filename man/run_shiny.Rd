@@ -4,11 +4,9 @@
 \alias{run_shiny}
 \title{Solve equations}
 \usage{
-run_shiny(model = "SIR", neweqns = NULL, ics = c(S = 9999, I = 1, R =
-  0), tstart = 0, timestep = 1, tmax = 365, parm0 = c(R0 = 3, Ip =
-  7, mu = round(0.25/365, 3)), parm_names = c("R0", "Infectious period",
-  "Birth rate"), parm_min = c(R0 = 0, Ip = 1, mu = 0), parm_max = c(R0
-  = 20, Ip = 21, mu = round(10/365, 3)), sigfigs = 4, linesize = 1.2,
+run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
+  timestep = 1, tmax = 365, parm0 = NULL, parm_names = NULL,
+  parm_min = NULL, parm_max = NULL, sigfigs = 4, linesize = 1.2,
   textsize = 14, ...)
 }
 \arguments{

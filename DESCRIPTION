@@ -1,6 +1,6 @@
 Package: shinySIR
 Type: Package
-Title: Interactive plotting for mathematical models of infectious disease spread.
+Title: Interactive plotting for mathematical models of infectious disease spread
 Version: 0.1.0
 Date: 2019-11-23
 Authors@R: person("Sinead E.", "Morris", role = c("aut", "cre"),
