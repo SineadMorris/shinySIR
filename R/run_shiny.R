@@ -35,6 +35,17 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
                       linesize = 1.2, textsize = 14, ...
                       ){
 
+    if (exists(model) & is.null(neweqns)){
+        eqns <- get(model, mode = "function")
+    } else if (exists(model) & !is.null(neweqns)){
+        warning("Your model name matches one of the built-in models. You can rename it using the 'model' argument.")
+        eqns <- neweqns
+    } else if (!exists(model) & is.null(neweqns)) {
+        stop("Model name not recognized. If using your own model, you must specify a function for the equations with the 'neweqns' argument.")
+    } else {
+        eqns <- neweqns
+    }
+
     if (is.null(parm0) & is.null(neweqns)) {
         params <- get_params(model)
 
@@ -80,23 +91,12 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
 
 
     # Behind the scenes code (Server)
-    server <- function(input, output) {
+    server <- function(input, output){
 
         # Get initial population size (doesn't change with user input)
         START.N <- as.numeric(sum(ics))
 
         output$plot1 <- renderPlot({
-
-            if (exists(model) & is.null(neweqns)){
-                eqns <- get(model, mode = "function")
-            } else if (exists(model) & !is.null(neweqns)){
-                warning("Your model name matches one of the built-in models. You can rename it using the 'model' argument.")
-                eqns <- neweqns
-            } else if (!exists(model) & is.null(neweqns)) {
-                stop("If using your own model, you must specify a function for the equations with the 'neweqns' argument.")
-            } else {
-                eqns <- neweqns
-            }
 
             # Get parameters from user input
             parms_vector <- unlist(reactiveValuesToList(input))
@@ -118,10 +118,27 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
             parms_vector <- unlist(reactiveValuesToList(input))
             parms_vector <- c(parms_vector, N = START.N)
 
-            if(model == "SIR"){
+            if (model %in% c("SIR", "SIS")) {
                 data.frame(
                     gamma = 1/parms_vector["Ip"],
                     beta = parms_vector["R0"] * (1/parms_vector["Ip"]) / parms_vector["N"]
+                )
+            } else if (model %in% c("SIRS")) {
+                data.frame(
+                    gamma = 1/parms_vector["Ip"],
+                    delta = 1/parms_vector["Rp"],
+                    beta = parms_vector["R0"] * (1/parms_vector["Ip"]) / parms_vector["N"]
+                )
+            } else if (model %in% c("SIRbirths", "SISbirths", "SIRvaccination")) {
+                data.frame(
+                    gamma = 1/parms_vector["Ip"],
+                    beta = parms_vector["R0"] * (1/parms_vector["Ip"] + parms_vector["mu"]) / parms_vector["N"]
+                )
+            } else if (model %in% c("SIRSbirths", "SIRSvaccination")) {
+                data.frame(
+                    gamma = 1/parms_vector["Ip"],
+                    delta = 1/parms_vector["Rp"],
+                    beta = parms_vector["R0"] * (1/parms_vector["Ip"] + parms_vector["mu"]) / parms_vector["N"]
                 )
             }
 
