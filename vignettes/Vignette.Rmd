@@ -108,10 +108,9 @@ Interactive plots can be generated for all built-in models using the `run_shiny(
 
 ### SIR
 
-`model = SIR`
+`model = "SIR"`
 
-The simple SIR model (without births or deaths) is given by 
-
+In the simple SIR model (without births or deaths), susceptible individuals ($S$) become infected and move into the infected class ($I$). After some period of time, infected individuals recover and move into the recovered (or immune) class ($R$). Once immune, they remain so for life (i.e. they do not leave the recovered class). The corresponding equations are given by 
 $$\begin{align*}
 \frac{dS}{dt} &= -\beta S I\\
 \frac{dI}{dt} &= \beta S I - \gamma I\\
@@ -125,28 +124,48 @@ where $S, I$, and $R$, are the numbers of susceptible, infected, and recovered i
 * $\gamma$ is the recovery rate and $\gamma I$ is the number of infected individuals that recover per day;
 * $1/\gamma$ is the infectious period i.e. the average duration of time an individual remains infected.
 
-An important quantity of any disease model is the the reproductive number, $R_0$, which represents the average number of secondary infections generated from one infectious individual in a completely susceptible population. For the SIR model, 
+An important quantity of any disease model is the the reproductive number, $R_0$, which represents the average number of secondary infections generated from one infectious individual in a completely susceptible population. For the SIR model, $$R_0 = \beta N / \gamma, $$ where $N = S + I + R$ is the total (constant) population size. Since $R_0$ and the infectious period are more intuitive parameters, we use these as inputs for the built-in SIR model. We can then calculate $\beta$ as $$\beta = R_0 \gamma / N.$$ 
 
-$$R_0 = \beta N / \gamma, $$
-where $N = S + I + R$ is the total (constant) population size.
+The default parameter arguments for the built-in model are:
 
-To run the SIR model, $R_0$ and the infectious period are more intuitive parameters, we use these as inputs for the built-in SIR model.
+* `parm0 = c(R0 = 3, Ip = 7)`
+* `parm_names = c("R0", "Infectious period")`
+* `parm_min = c(R0 = 0, Ip = 1)`
+* `parm_max = c(R0 = 20, Ip = 21)`
 
 
 #### SIR with demography
 
-`model = SIRbirths`
+`model = "SIRbirths"`
 
+We can also add births into the SIR model. Assuming the birth rate is equal to the death rate ($\mu$) gives:
 $$\begin{align*}
 \frac{dS}{dt} &= \mu N -\beta S I - \mu S\\
 \frac{dI}{dt} &= \beta S I - \gamma I - \mu I\\
 \frac{dR}{dt} &=  \gamma I - \mu R.
 \end{align*}$$
 
+Then
+
+* $\mu N$ represents the number of births into the population per unit time (we assume everyone is born suceptible)
+* $\mu S$ (or $\mu I$/ $\mu R$) is the number of susceptible (or infected/ immune) individuals that die per unit time.
+
+For this model, $$R_0 = \beta N / (\gamma + \mu), $$ and so $$\beta = R_0 (\gamma + \mu) / N.$$
+
+The default parameter arguments  are:
+
+* `parm0 = c(R0 = 3, Ip = 7, mu = round(0.25/365, 3))`
+* `parm_names = c("R0", "Infectious period", "Birth rate")`
+* `parm_min = c(R0 = 0, Ip = 1, mu = 0)`
+* `parm_max = c(R0 = 20, Ip = 21, mu = round(10/365, 3))`
+
+Note the `round(..., 3)` function rounds the parameter value to 3 decimal points. This improves readability for the shiny app slider scale.
 
 #### SIR with vaccination at birth
 
-`model = SIRvaccination`
+`model = "SIRvaccination"`
+
+To incorporate vaccination, assume a proportion, $p$, of new births into the population are vaccinated (and thus immune to infection). Those that are vaccinated will avoid the susceptible class and go straight to the recovered class, whereas those that are unvaccinated will go into the susceptible class as before. If $p$ is the proportion vaccinated, then $1 - p$ is the proportion left unvaccinated, and the equations become:
 
 $$\begin{align*}
 \frac{dS}{dt} &= \mu N (1 - p) -\beta S I - \mu S\\
@@ -154,11 +173,132 @@ $$\begin{align*}
 \frac{dR}{dt} &=  \gamma I - \mu R + \mu N p.
 \end{align*}$$
 
+Here
+
+* $\mu N p$ is the number of newborns vaccinated per unit time and $\mu N (1 - p)$ is the number not vaccinated.
+* $R_0$ is the same as in the SIR model with demography
+
+The default parameter arguments are:
+
+* `parm0 = c(R0 = 3, Ip = 7, mu = round(0.25/365, 3), p = 0.75)`
+* `parm_names = c("R0", "Infectious period", "Birth rate", "Proportion vaccinated")`
+* `parm_min = c(R0 = 0, Ip = 1, mu = 0, p = 0)`
+* `parm_max = c(R0 = 20, Ip = 21, mu = round(10/365, 3), p = 1)`
+            
 ### SIS
+
+`model = "SIS"`
+
+For the SIS model, susceptible individuals ($S$) become infected and move into the infected class ($I$), and then infected individuals who recover move straight back to the susceptible class (so there's no period of immunity like in the SIR model).
+
+The corresponding equations (without demography) are
+\begin{align*}
+\frac{dS}{dt} &= - \beta S I + \gamma I\\
+\frac{dI}{dt} &= \beta S I - \gamma I.
+\end{align*}
+
+As in the SIR model without demography, $$R_0 = \beta N / \gamma, $$ and so $$\beta = R_0 \gamma / N.$$
+
+The default parameter arguments are:
+
+* `parm0 = c(R0 = 3, Ip = 7)`
+* `parm_names = c("R0", "Infectious period")`
+* `parm_min = c(R0 = 0, Ip = 1)`
+* `parm_max = c(R0 = 20, Ip = 21)`
+
+#### SIS with demography
+
+`model = "SISbirths"`
+
+Similar to the SIR model, we add in demography by assuming the birth rate is equal to the death rate ($\mu$):
+$$\begin{align*}
+\frac{dS}{dt} &= \mu N -\beta S I + \gamma I - \mu S\\
+\frac{dI}{dt} &= \beta S I - \gamma I - \mu I\\
+\end{align*}$$
+
+It follows that $$R_0 = \beta N / (\gamma + \mu), $$ and so $$\beta = R_0 (\gamma + \mu) / N.$$
+
+The default parameter arguments are:
+
+* `parm0 = c(R0 = 3, Ip = 7, mu = round(0.25/365, 3))`
+* `parm_names = c("R0", "Infectious period", "Birth rate")`
+* `parm_min = c(R0 = 0, Ip = 1, mu = 0)`
+* `parm_max = c(R0 = 20, Ip = 21, mu = round(10/365, 3))`
+            
+            
 
 ### SIRS
 
+`model = "SIRS"`
 
+The SIRS model is similar to the SIR model in that individuals become immune to the disease once they recover. However, instead of remainining immune for life (i.e. staying in the $R$ class), they can instead lose this immunity (at rate $\delta$) and re-enter the susceptible class. The equations are given by
+
+$$\begin{align*}
+\frac{dS}{dt} &= -\beta S I + \delta R\\
+\frac{dI}{dt} &= \beta S I - \gamma I\\
+\frac{dR}{dt} &=  \gamma I - \delta R.
+\end{align*}$$
+
+Here
+
+* $\delta R$ is the number of recovered individuals losing immunity per unit time
+* $1/\delta$ is the duration of immunity i.e. the average period of time an individual remains immune/recovered.
+
+As with the SIR model, $$R_0 = \beta N /\gamma $$ and so $$\beta = R_0 \gamma/ N.$$
+
+Since the duration of immunity (`Rp`) may be a more intuitive quantity to parameterize than the rate of immune loss, we use this as an input alongside $R_0$ and the infectious period. The default parameter arguments are:
+
+* `parm0 = c(R0 = 3, Ip = 7, Rp = 365)`
+* `parm_names = c("R0", "Infectious period", "Duration of immunity")`
+* `parm_min = c(R0 = 0, Ip = 1, Rp = 30)`
+* `parm_max = c(R0 = 20, Ip = 21, Rp = 30 * 365)`
+
+            
+#### SIRS with demography
+
+`model = "SIRSbirths"`
+
+Similar to the SIR and SIS models, we add in demography by assuming the birth rate is equal to the death rate ($\mu$):
+$$\begin{align*}
+\frac{dS}{dt} &= \mu N -\beta S I + \delta R - \mu S\\
+\frac{dI}{dt} &= \beta S I - \gamma I  - \mu I\\
+\frac{dR}{dt} &=  \gamma I - \delta R  - \mu R.
+\end{align*}$$
+
+It follows that $$R_0 = \beta N / (\gamma + \mu), $$ and so $$\beta = R_0 (\gamma + \mu) / N.$$
+
+The default parameter arguments are:
+
+* `parm0 = c(R0 = 3, Ip = 7, Rp = 365, mu = round(0.25/365, 3))`
+* `parm_names = c("R0", "Infectious period", "Duration of immunity", "Birth rate")`
+* `parm_min = c(R0 = 0, Ip = 1, Rp = 30, mu = 0)`
+* `parm_max = c(R0 = 20, Ip = 21, Rp = 30 * 365, mu = round(10/365, 3))`
+            
+
+#### SIRS with vaccination
+
+`model = "SIRSvaccination"`
+
+Similar to the SIR mode, we incorporate vaccination by assuming a proportion, $p$, of new births into the population are vaccinated (and thus immune to infection). The equations become:
+
+
+$$\begin{align*}
+\frac{dS}{dt} &= \mu N (1 - p) - \beta S I + \delta R - \mu S\\
+\frac{dI}{dt} &= \beta S I - \gamma I - \mu I\\
+\frac{dR}{dt} &=  \gamma I - \delta R  - \mu R + \mu N p.
+\end{align*}$$
+
+
+Again $$R_0 = \beta N / (\gamma + \mu), $$ and so $$\beta = R_0 (\gamma + \mu) / N.$$
+
+The default parameter arguments are:
+
+* `parm0 = c(R0 = 3, Ip = 7, Rp = 365, mu = round(0.25/365, 3), p = 0.75)`
+* `parm_names = c("R0", "Infectious period", "Duration of immunity", "Birth rate", "Proportion vaccinated")`
+* `parm_min = c(R0 = 0, Ip = 1, Rp = 30, mu = 0, p = 0)`
+* `parm_max = c(R0 = 20, Ip = 21, Rp = 30 * 365, mu = round(10/365, 3), p = 1)`
+            
+            
 ## References
 
 1. RM Anderson and R May (1992) Infectious Diseases of Humans: Dynamics and Control. Oxford Science Publications.
