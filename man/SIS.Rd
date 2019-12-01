@@ -2,8 +2,7 @@
 % Please edit documentation in R/models.R
 \name{SIS}
 \alias{SIS}
-\title{SIS model
-These equations describe the classic SIS model with no births or deaths.}
+\title{SIS model}
 \usage{
 SIS(t, y, parms)
 }
@@ -18,6 +17,5 @@ SIS(t, y, parms)
 equation list
 }
 \description{
-SIS model
 These equations describe the classic SIS model with no births or deaths.
 }

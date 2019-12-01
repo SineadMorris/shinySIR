@@ -2,8 +2,7 @@
 % Please edit documentation in R/models.R
 \name{SIRSvaccination}
 \alias{SIRSvaccination}
-\title{SIRS model with vaccination at birth
-These equations describe the classic SIRS model with equal birth and death rates and vaccination at birth.}
+\title{SIRS model with vaccination at birth}
 \usage{
 SIRSvaccination(t, y, parms)
 }
@@ -18,6 +17,5 @@ SIRSvaccination(t, y, parms)
 equation list
 }
 \description{
-SIRS model with vaccination at birth
 These equations describe the classic SIRS model with equal birth and death rates and vaccination at birth.
 }

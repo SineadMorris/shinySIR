@@ -2,8 +2,7 @@
 % Please edit documentation in R/models.R
 \name{SIR}
 \alias{SIR}
-\title{SIR model
-These equations describe the classic SIR model with no births or deaths.}
+\title{SIR model}
 \usage{
 SIR(t, y, parms)
 }
@@ -18,6 +17,5 @@ SIR(t, y, parms)
 equation list
 }
 \description{
-SIR model
 These equations describe the classic SIR model with no births or deaths.
 }

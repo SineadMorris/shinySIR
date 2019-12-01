@@ -2,8 +2,7 @@
 % Please edit documentation in R/models.R
 \name{SIRbirths}
 \alias{SIRbirths}
-\title{SIR model with demography
-These equations describe the classic SIR model with equal births and deaths.}
+\title{SIR model with demography}
 \usage{
 SIRbirths(t, y, parms)
 }
@@ -18,6 +17,5 @@ SIRbirths(t, y, parms)
 equation list
 }
 \description{
-SIR model with demography
 These equations describe the classic SIR model with equal births and deaths.
 }

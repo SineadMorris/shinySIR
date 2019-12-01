@@ -110,7 +110,6 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
             ODEoutput <- solve_eqns(eqns, ics, times = times_vector, parms = parms_vector)
 
             # Plot output
-            # **** put factor order as it comes in ics - so user can control how presented in legend
             plot_model(ODEoutput, linesize, textsize, levels = names(ics), ...)
         })
 

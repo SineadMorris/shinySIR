@@ -53,13 +53,17 @@ run_shiny(model = "SIR")
 
 ```
 
+```{r echo = FALSE}
+library(shinySIR)
+```
 
 ![](shinySIRscreenshot.png){width=700px}
 
 
 ## Model specification
 
-A number of common models are supplied with the package, including the SIR, SIRS, and SIS models. These can be accessed using the `model` argument, as shown above for the SIR model. These built-in models are parameterized using $R_0$ and the infectious period ($1/\gamma$), since these may be more intuitive for new students than the slightly abstract transmission rate ($\beta$) and recovery rate ($\gamma$). The values for $\beta$ and $\gamma$ are calculated from the other parameters and printed in a table below the graph (as shown in the SIR example above). A comprehensive description of all built-in models is given below. 
+A number of common models are supplied with the package, including the SIR, SIRS, and SIS models. These can be accessed using the `model` argument, as shown above for the SIR model. These built-in models are parameterized using $R_0$ and the infectious period ($1/\gamma$), since these may be more intuitive for new students than the slightly abstract transmission rate ($\beta$) and recovery rate ($\gamma$). The values for $\beta$ and $\gamma$ are calculated from the other parameters and printed in a table below the graph (as shown in the SIR example above). A comprehensive description of all built-in models is given below. Brief information can also be obtained by calling `default_models()`.
+
 
 #### Example of user-defined model
 
@@ -126,12 +130,14 @@ where $S, I$, and $R$, are the numbers of susceptible, infected, and recovered i
 
 An important quantity of any disease model is the the reproductive number, $R_0$, which represents the average number of secondary infections generated from one infectious individual in a completely susceptible population. For the SIR model, $$R_0 = \beta N / \gamma, $$ where $N = S + I + R$ is the total (constant) population size. Since $R_0$ and the infectious period are more intuitive parameters, we use these as inputs for the built-in SIR model. We can then calculate $\beta$ as $$\beta = R_0 \gamma / N.$$ 
 
-The default parameter arguments for the built-in model are:
+The default parameter arguments for the SIR model are:
 
 * `parm0 = c(R0 = 3, Ip = 7)`
 * `parm_names = c("R0", "Infectious period")`
 * `parm_min = c(R0 = 0, Ip = 1)`
 * `parm_max = c(R0 = 20, Ip = 21)`
+
+These can also be viewed by calling `get_params(model = "SIR")`.
 
 
 #### SIR with demography
@@ -159,7 +165,8 @@ The default parameter arguments  are:
 * `parm_min = c(R0 = 0, Ip = 1, mu = 0)`
 * `parm_max = c(R0 = 20, Ip = 21, mu = round(10/365, 3))`
 
-Note the `round(..., 3)` function rounds the parameter value to 3 decimal points. This improves readability for the shiny app slider scale.
+These can also be viewed by calling `get_params(model = "SIRbirths")`. Note the `round(..., 3)` function rounds the parameter value to 3 decimal points. This improves readability for the shiny app slider scale.
+
 
 #### SIR with vaccination at birth
 
@@ -184,7 +191,9 @@ The default parameter arguments are:
 * `parm_names = c("R0", "Infectious period", "Birth rate", "Proportion vaccinated")`
 * `parm_min = c(R0 = 0, Ip = 1, mu = 0, p = 0)`
 * `parm_max = c(R0 = 20, Ip = 21, mu = round(10/365, 3), p = 1)`
-            
+
+These can also be viewed by calling `get_params(model = "SIRvaccination")`.
+
 ### SIS
 
 `model = "SIS"`
@@ -206,6 +215,8 @@ The default parameter arguments are:
 * `parm_min = c(R0 = 0, Ip = 1)`
 * `parm_max = c(R0 = 20, Ip = 21)`
 
+These can also be viewed by calling `get_params(model = "SIS")`.
+
 #### SIS with demography
 
 `model = "SISbirths"`
@@ -225,7 +236,7 @@ The default parameter arguments are:
 * `parm_min = c(R0 = 0, Ip = 1, mu = 0)`
 * `parm_max = c(R0 = 20, Ip = 21, mu = round(10/365, 3))`
             
-            
+These can also be viewed by calling `get_params(model = "SISbirths")`.
 
 ### SIRS
 
@@ -253,6 +264,7 @@ Since the duration of immunity (`Rp`) may be a more intuitive quantity to parame
 * `parm_min = c(R0 = 0, Ip = 1, Rp = 30)`
 * `parm_max = c(R0 = 20, Ip = 21, Rp = 30 * 365)`
 
+These can also be viewed by calling `get_params(model = "SIRS")`.
             
 #### SIRS with demography
 
@@ -274,6 +286,8 @@ The default parameter arguments are:
 * `parm_min = c(R0 = 0, Ip = 1, Rp = 30, mu = 0)`
 * `parm_max = c(R0 = 20, Ip = 21, Rp = 30 * 365, mu = round(10/365, 3))`
             
+These can also be viewed by calling `get_params(model = "SIRSbirths")`.
+
 
 #### SIRS with vaccination
 
@@ -298,7 +312,8 @@ The default parameter arguments are:
 * `parm_min = c(R0 = 0, Ip = 1, Rp = 30, mu = 0, p = 0)`
 * `parm_max = c(R0 = 20, Ip = 21, Rp = 30 * 365, mu = round(10/365, 3), p = 1)`
             
-            
+These can also be viewed by calling `get_params(model = "SIRSvaccination")`.
+
 ## References
 
 1. RM Anderson and R May (1992) Infectious Diseases of Humans: Dynamics and Control. Oxford Science Publications.

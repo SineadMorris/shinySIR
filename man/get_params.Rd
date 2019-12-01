@@ -15,3 +15,7 @@ list of default parameter vectors.
 \description{
 This function returns the default parameter vectors for a particular built-in model.
 }
+\examples{
+get_params(model = "SIR")
+
+}

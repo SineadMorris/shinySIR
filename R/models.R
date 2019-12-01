@@ -1,5 +1,5 @@
 #' SIR model
-
+#'
 #' These equations describe the classic SIR model with no births or deaths.
 #' @param t numeric vector of time points.
 #' @param y numeric vector of variables.
@@ -32,7 +32,7 @@ SIR <- function(t, y, parms) {
 
 
 #' SIR model with demography
-
+#'
 #' These equations describe the classic SIR model with equal births and deaths.
 #' @param t numeric vector of time points.
 #' @param y numeric vector of variables.
@@ -69,7 +69,7 @@ SIRbirths <- function(t, y, parms) {
 
 
 #' SIR model with vaccination at birth
-
+#'
 #' These equations describe the classic SIR model with births and deaths, constant population size, and (optional) vaccination at birth.
 #' @param t numeric vector of time points
 #' @param y numeric vector of variables
@@ -109,7 +109,7 @@ SIRvaccination <- function(t, y, parms) {
 
 
 #' SIS model
-
+#'
 #' These equations describe the classic SIS model with no births or deaths.
 #' @param t numeric vector of time points
 #' @param y numeric vector of variables
@@ -141,7 +141,7 @@ SIS <- function(t, y, parms) {
 
 
 #' SIS model with demography
-
+#'
 #' These equations describe the classic SIR model with equal births and deaths.
 #' @param t numeric vector of time points.
 #' @param y numeric vector of variables.
@@ -175,7 +175,7 @@ SISbirths <- function(t, y, parms) {
 
 
 #' SIRS model
-
+#'
 #' These equations describe the classic SIRS model without births or deaths.
 #' @param t numeric vector of time points.
 #' @param y numeric vector of variables.
@@ -214,7 +214,7 @@ SIRS <- function(t, y, parms) {
 
 
 #' SIRS model with demography
-
+#'
 #' These equations describe the classic SIRS model with equal birth and death rates.
 #' @param t numeric vector of time points.
 #' @param y numeric vector of variables.
@@ -258,7 +258,7 @@ SIRSbirths <- function(t, y, parms) {
 
 
 #' SIRS model with vaccination at birth
-
+#'
 #' These equations describe the classic SIRS model with equal birth and death rates and vaccination at birth.
 #' @param t numeric vector of time points.
 #' @param y numeric vector of variables.

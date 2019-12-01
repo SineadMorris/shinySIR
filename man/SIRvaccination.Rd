@@ -2,8 +2,7 @@
 % Please edit documentation in R/models.R
 \name{SIRvaccination}
 \alias{SIRvaccination}
-\title{SIR model with vaccination at birth
-These equations describe the classic SIR model with births and deaths, constant population size, and (optional) vaccination at birth.}
+\title{SIR model with vaccination at birth}
 \usage{
 SIRvaccination(t, y, parms)
 }
@@ -18,6 +17,5 @@ SIRvaccination(t, y, parms)
 equation list
 }
 \description{
-SIR model with vaccination at birth
 These equations describe the classic SIR model with births and deaths, constant population size, and (optional) vaccination at birth.
 }
