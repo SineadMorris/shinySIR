@@ -56,15 +56,45 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         parm_max <- params$parm_max
     }
 
-    if (is.null(ics) & is.null(neweqns)) {
-        ics <- get_ics(model)
-    } else if (is.null(ics) & !is.null(neweqns)){
-        stop("You must specify initial conditions for your own model using the 'ics' argument.")
+    # Check parameter vectors when user-specified model is defined
+    if (!is.null(neweqns) & ( is.null(parm0))){
+        stop("Missing parameter vector 'parm0'")
+    }
+
+    if (is.null(names(parm_min)) | is.null(names(parm_max)) | is.null(names(parm0))) {
+        stop("parm0, parm_min, and parm_max must be named vectors.")
+    }
+
+    if (!is.null(neweqns) & ( is.null(parm_names))){
+        parm_names <- names(parm0)
+        warning("Could not find names of parameters for interactive menu ('parm_names'). Using names of 'parm0' instead.")
+    }
+
+    if (!is.null(neweqns) & ( is.null(parm_min))){
+        parm_names <- names(parm0)
+        stop("Missing parameter vector 'parm_min'")
+    }
+
+    if (!is.null(neweqns) & ( is.null(parm_max))){
+        parm_names <- names(parm0)
+        stop("Missing parameter vector 'parm_max'")
+    }
+
+    if (any(parm_min > parm_max)){
+        warning("All entries in parm_min must be less than their corresponding entries in parm_max.")
     }
 
     parm0 <- signif(parm0, sigfigs)
     parm_min <- signif(parm_min, sigfigs)
     parm_max <- signif(parm_max, sigfigs)
+
+
+    # Get initial conditions
+    if (is.null(ics) & is.null(neweqns)) {
+        ics <- get_ics(model)
+    } else if (is.null(ics) & !is.null(neweqns)){
+        stop("You must specify initial conditions for your own model using the 'ics' argument.")
+    }
 
     # Check parameters appear in the same order in all vectors
     if ( !( all(sapply(list(names(parm0), names(parm_min), names(parm_max)), function(x) x == names(parm0)))) ){
@@ -77,7 +107,7 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         sidebarPanel(
             lapply(seq_along(parm0),
                    function(x) sliderInput(inputId = names(parm0)[x], label = parm_names[x],
-                                           value = parm0[x],min = parm_min[x], max = parm_max[x])
+                                           value = parm0[x], min = parm_min[x], max = parm_max[x])
                    )
         ),
         mainPanel(
