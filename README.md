@@ -45,7 +45,7 @@ run_shiny(model = "SIR")
 
 ### Built-in models
 
-A number of common models are supplied with the package. These include the SIR, SIRS, and SIS models. These can be accessed using the `model` argument, as shown above for the SIR model. These built-in models are parameterized using *R*<sub>0</sub> and the infectious period (1/*γ*), since these may be more intuitive for new students than the slightly abstract transmission rate (*β*) and recovery rate (*γ*). The values for *β* and *γ* are calculated from the other parameters and printed in a table below the graph (as shown in the SIR example above).
+A number of common models are supplied with the package. These include the SIR, SIRS, and SIS models. These can be accessed using the `model` argument, as shown above for the SIR model. The built-in models are parameterized using *R*<sub>0</sub> and the infectious period (1/*γ*), since these may be more intuitive for new students than the slightly abstract transmission rate (*β*) and recovery rate (*γ*). The values for *β* and *γ* are calculated from the other parameters and printed in a table below the graph (as shown in the SIR example above).
 
 A comprehensive description of all built-in models and default parameters are given in the package vignette. Brief information can also be obtained by calling `default_models()`.
 
