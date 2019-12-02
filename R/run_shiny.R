@@ -46,6 +46,7 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         eqns <- neweqns
     }
 
+    # Get parameters for built-in models
     if (is.null(parm0) & is.null(neweqns)) {
         params <- get_params(model)
 
@@ -57,7 +58,7 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
     }
 
     # Check parameter vectors when user-specified model is defined
-    if (!is.null(neweqns) & ( is.null(parm0))){
+    if (!is.null(neweqns) & ( is.null(parm0))) {
         stop("Missing parameter vector 'parm0'")
     }
 
@@ -65,22 +66,22 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         stop("parm0, parm_min, and parm_max must be named vectors.")
     }
 
-    if (!is.null(neweqns) & ( is.null(parm_names))){
+    if (!is.null(neweqns) & ( is.null(parm_names))) {
         parm_names <- names(parm0)
         warning("Could not find names of parameters for interactive menu ('parm_names'). Using names of 'parm0' instead.")
     }
 
-    if (!is.null(neweqns) & ( is.null(parm_min))){
+    if (!is.null(neweqns) & ( is.null(parm_min))) {
         parm_names <- names(parm0)
         stop("Missing parameter vector 'parm_min'")
     }
 
-    if (!is.null(neweqns) & ( is.null(parm_max))){
+    if (!is.null(neweqns) & ( is.null(parm_max))) {
         parm_names <- names(parm0)
         stop("Missing parameter vector 'parm_max'")
     }
 
-    if (any(parm_min > parm_max)){
+    if (any(parm_min > parm_max)) {
         warning("All entries in parm_min must be less than their corresponding entries in parm_max.")
     }
 
@@ -88,17 +89,20 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
     parm_min <- signif(parm_min, sigfigs)
     parm_max <- signif(parm_max, sigfigs)
 
+    # Check parameters appear in the same order in all vectors
+    if ( !( all(sapply(list(names(parm0), names(parm_min), names(parm_max)), function(x) x == names(parm0)))) ){
+        stop("the parameters in parm0, parm_names, parm_min, and parm_max must appear in the same order.")
+    }
+
 
     # Get initial conditions
     if (is.null(ics) & is.null(neweqns)) {
         ics <- get_ics(model)
-    } else if (is.null(ics) & !is.null(neweqns)){
+    } else if (is.null(ics) & !is.null(neweqns)) {
         stop("You must specify initial conditions for your own model using the 'ics' argument.")
     }
-
-    # Check parameters appear in the same order in all vectors
-    if ( !( all(sapply(list(names(parm0), names(parm_min), names(parm_max)), function(x) x == names(parm0)))) ){
-        stop("the parameters in parm0, parm_names, parm_min, and parm_max must appear in the same order.")
+    if (is.null(names(ics))) {
+        stop("ics must be a named vector.")
     }
 
     # User Interface (UI)
