@@ -58,6 +58,8 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
 
     if (is.null(ics) & is.null(neweqns)) {
         ics <- get_ics(model)
+    } else if (is.null(ics) & !is.null(neweqns)){
+        stop("You must specify initial conditions for your own model using the 'ics' argument.")
     }
 
     parm0 <- signif(parm0, sigfigs)
@@ -80,12 +82,8 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         ),
         mainPanel(
             plotOutput("plot1"),
-            tableOutput("table1"),
-            tags$footer("created with shinySIR",
-                        align = "left",
-                        type = "text",
-                        style = "bottom:100; padding: 10px"
-            )
+            br(), br(), br(),
+            tableOutput("table1")
         )
     )
 
@@ -120,29 +118,33 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
 
             if (model %in% c("SIR", "SIS")) {
                 data.frame(
-                    gamma = 1/parms_vector["Ip"],
-                    beta = parms_vector["R0"] * (1/parms_vector["Ip"]) / parms_vector["N"]
+                    Parameter = c("gamma", "beta"),
+                    Value = c(1/parms_vector["Ip"],
+                              parms_vector["R0"] * (1/parms_vector["Ip"]) / parms_vector["N"])
                 )
             } else if (model %in% c("SIRS")) {
                 data.frame(
-                    gamma = 1/parms_vector["Ip"],
-                    delta = 1/parms_vector["Rp"],
-                    beta = parms_vector["R0"] * (1/parms_vector["Ip"]) / parms_vector["N"]
+                    Parameter = c("gamma", "delta", "beta"),
+                    Value = c(1/parms_vector["Ip"],
+                              1/parms_vector["Rp"],
+                              parms_vector["R0"] * (1/parms_vector["Ip"]) / parms_vector["N"])
                 )
             } else if (model %in% c("SIRbirths", "SISbirths", "SIRvaccination")) {
                 data.frame(
-                    gamma = 1/parms_vector["Ip"],
-                    beta = parms_vector["R0"] * (1/parms_vector["Ip"] + parms_vector["mu"]) / parms_vector["N"]
+                    Parameter = c("gamma", "beta"),
+                    Value = c(1/parms_vector["Ip"],
+                              parms_vector["R0"] * (1/parms_vector["Ip"] + parms_vector["mu"]) / parms_vector["N"])
                 )
             } else if (model %in% c("SIRSbirths", "SIRSvaccination")) {
                 data.frame(
-                    gamma = 1/parms_vector["Ip"],
-                    delta = 1/parms_vector["Rp"],
-                    beta = parms_vector["R0"] * (1/parms_vector["Ip"] + parms_vector["mu"]) / parms_vector["N"]
+                    Parameter = c("gamma", "delta", "beta"),
+                    Value = c(1/parms_vector["Ip"],
+                              1/parms_vector["Rp"],
+                              parms_vector["R0"] * (1/parms_vector["Ip"] + parms_vector["mu"]) / parms_vector["N"])
                 )
             }
 
-        }, digits = -1 )
+        }, digits = -1, bordered = TRUE)
 
     }
 

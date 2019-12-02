@@ -73,15 +73,17 @@ mySIRS <- function(t, y, parms) {
 }
 ```
 
-The interactive plot can then be created by calling this function with `neweqns`, and specifying vectors for the parameter attributes, including parameter starting values (`parm0`), names to be displayed in the interactive menu (`parm_names`), and minimum and maximum values for the interactive menu (`parm_min` and `parm_max`, respectively).
+The interactive plot can then be created by calling this function with `neweqns`, specifying initial conditions for all model variables (`ics`), and specifying vectors for the parameter attributes, including parameter starting values (`parm0`), names to be displayed in the interactive menu (`parm_names`), and minimum and maximum values for the interactive menu (`parm_min` and `parm_max`, respectively).
 
 ``` r
 
-run_shiny(model = "SIRS (w/out demography)", neweqns = mySIRS,
-           parm0 = c(beta = 5e-5, gamma = 1/7, delta = 0.1),
-           parm_names = c("Transmission rate", "Recovery rate", "Loss of immunity"),
-           parm_min = c(beta = 1e-5, gamma = 1/21, delta = 1/365),
-           parm_max = c(beta = 9e-5, gamma = 1 , delta = 1))
+run_shiny(model = "SIRS (w/out demography)", 
+          neweqns = mySIRS,
+          ics = c(S = 9999, I = 1, R = 0),
+          parm0 = c(beta = 5e-5, gamma = 1/7, delta = 0.1),
+          parm_names = c("Transmission rate", "Recovery rate", "Loss of immunity"),
+          parm_min = c(beta = 1e-5, gamma = 1/21, delta = 1/365),
+          parm_max = c(beta = 9e-5, gamma = 1 , delta = 1))
 ```
 
 <img src="shinySIRSscreenshot.png" style="width:100.0%" />
