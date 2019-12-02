@@ -43,14 +43,13 @@ run_shiny(model = "SIR")
 
 <img src="shinySIRscreenshot.png" style="width:100.0%" />
 
-Model specification
--------------------
+### Built-in models
 
 A number of common models are supplied with the package. These include the SIR, SIRS, and SIS models. These can be accessed using the `model` argument, as shown above for the SIR model. These built-in models are parameterized using *R*<sub>0</sub> and the infectious period (1/*γ*), since these may be more intuitive for new students than the slightly abstract transmission rate (*β*) and recovery rate (*γ*). The values for *β* and *γ* are calculated from the other parameters and printed in a table below the graph (as shown in the SIR example above).
 
 A comprehensive description of all built-in models and default parameters are given in the package vignette. Brief information can also be obtained by calling `default_models()`.
 
-#### Example of user-defined model
+### User-defined models
 
 Users can also specify their own models using the `neweqns` argument. `neweqns` takes a function containing the equations for the new model, with syntax as outlined in the example below. Note the syntax follows that used by the popular ODE solver `deSolve`.
 
