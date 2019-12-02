@@ -1,13 +1,13 @@
 Package: shinySIR
 Type: Package
-Title: Interactive plotting for mathematical models of infectious disease spread
+Title: Interactive Plotting for Mathematical Models of Infectious Disease Spread
 Version: 0.1.0
 Date: 2019-11-23
 Authors@R: person("Sinead E.", "Morris", role = c("aut", "cre"),
 		   email = "sinead.morris@columbia.edu",
 		   comment = c(ORCID = "0000-0001-8626-1698"))
 Maintainer: Sinead E. Morris <sinead.morris@columbia.edu>
-Description: This package provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. This latter flexibility allows shinySIR to be applied to simple ODEs from any discipline. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R. The built-in models are inspired by those featured in Keeling and Rohani (2008) <doi:10.2307/j.ctvcm4gk0>; code for the original SIR example was inspired by Bjornstad (2018) <doi:10.1007/978-3-319-97487-3>.
+Description: This package provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ordinary differential equation (ODE) models (such as the SIR, SIRS, and SIS models), or create their own. This latter flexibility allows shinySIR to be applied to simple ODEs from any discipline. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R. The built-in models are inspired by those featured in Keeling and Rohani (2008) <doi:10.2307/j.ctvcm4gk0>; code for the original SIR example was inspired by Bjornstad (2018) <doi:10.1007/978-3-319-97487-3>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

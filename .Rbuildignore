@@ -4,6 +4,7 @@
 ^test_shinySIR_builtin\.R$
 ^test_run_shiny\.R$
 ^README\.Rmd$
+^README\.md$
 ^\.travis\.yml$
 ^doc$
 ^Meta$
