@@ -7,7 +7,7 @@ Authors@R: person("Sinead E.", "Morris", role = c("aut", "cre"),
 		   email = "sinead.morris@columbia.edu",
 		   comment = c(ORCID = "0000-0001-8626-1698"))
 Maintainer: Sinead E. Morris <sinead.morris@columbia.edu>
-Description: This package provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R.
+Description: This package provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. This flexibility allows shinySIR to be applied to simple ODEs from any discipline. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -41,7 +41,7 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         warning("Your model name matches one of the built-in models. You can rename it using the 'model' argument.")
         eqns <- neweqns
     } else if (!exists(model) & is.null(neweqns)) {
-        stop("Model name not recognized. If using your own model, you must specify a function for the equations with the 'neweqns' argument.")
+        stop("Model name not recognized. Try one of the built-in models or specify your own with the 'neweqns' argument.")
     } else {
         eqns <- neweqns
     }
