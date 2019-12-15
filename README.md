@@ -4,7 +4,7 @@
 shinySIR
 ========
 
-`shinySIR` provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. This latter flexibility allows `shinySIR` to be applied to simple ODEs from any discipline. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R. The built-in models are inspired by those featured in the references below \[1-3\]; code for the original SIR example was inspired by \[3\].
+`shinySIR` provides interactive plotting for mathematical models of infectious disease spread. Users can choose from a variety of common built-in ODE models (such as the SIR, SIRS, and SIS models), or create their own. This latter flexibility allows `shinySIR` to be applied to simple ODEs from any discipline. The package is a useful teaching tool as students can visualize how changing different parameters can impact model dynamics, with minimal knowledge of coding in R. The built-in models are inspired by those featured in the references below \[1-4\].
 
 Basic information
 -----------------
@@ -12,6 +12,10 @@ Basic information
 ###### Author and maintainer
 
 Sinead E Morris
+
+###### Contributers
+
+Ottar N Bjørnstad
 
 ###### Citing this package
 
@@ -94,4 +98,6 @@ References
 
 2.  MJ Keeling and P Rohani (2008) Modeling Infectious Diseases in Humans and Animals. Princeton University Press.
 
-3.  ON Bjornstad (2018) Epidemics: Models and Data using R. Springer.
+3.  ON Bjørnstad (2018) Epidemics: Models and Data using R. Springer.
+
+4.  DJD Earn, P Rohani, BM Bolker, BT Grenfell (2000) A simple model for complex dynamical transitions in epidemics. *Science* 287: 667-670
