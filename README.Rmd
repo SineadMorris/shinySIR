@@ -32,7 +32,7 @@ Citation information can be found with `citation("shinySIR")`.
 
 ###### Getting help
 
-If you encounter any bugs related to this package please contact the author directly. Additional descriptions of the mathematical theory and package functionality can be found in the vignette. Further details on the mathematical theory can also be found in the references listed below [1-3].
+If you encounter any bugs related to this package please contact the author directly. Additional descriptions of the mathematical theory and package functionality can be found in the vignette. Further details on the mathematical theory can also be found in the references listed below [1-4].
 
 
 ## Quick start example
