@@ -13,7 +13,7 @@ Basic information
 
 Sinead E Morris
 
-###### Contributers
+###### Contributors
 
 Ottar N Bjørnstad
 

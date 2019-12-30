@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 Sinead E Morris
 
-###### Contributers
+###### Contributors
 
 Ottar N Bj&#248;rnstad
 

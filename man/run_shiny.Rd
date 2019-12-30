@@ -12,7 +12,7 @@ run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
 \arguments{
 \item{model}{name of the model to be solved. Examples of built-in models are: "SIR", "SIR vaccination". Default is "SIR".}
 
-\item{neweqns}{function specifying the equations of the user-definied model. Only to be used if a model is required that is not built-in. Default is NULL.}
+\item{neweqns}{function specifying the equations of the user-defined model. Only to be used if a model is required that is not built-in. Default is NULL.}
 
 \item{ics}{named numeric vector specifying the initial conditions i.e. the initial values of all model variables. Default is c(S = 9999, I = 1, R = 0) for the SIR model.}
 

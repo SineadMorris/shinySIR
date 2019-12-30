@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 Sinead E Morris
 
 
-###### Contributers
+###### Contributors
 
 Ottar N Bj&#248;rnstad
 
@@ -164,7 +164,7 @@ $$\begin{align*}
 
 Then
 
-* $\mu N$ represents the number of births into the population per unit time (we assume everyone is born suceptible)
+* $\mu N$ represents the number of births into the population per unit time (we assume everyone is born susceptible)
 * $\mu S$ (or $\mu I$/ $\mu R$) is the number of susceptible (or infected/ immune) individuals that die per unit time.
 
 For this model, $$R_0 = \beta N / (\gamma + \mu), $$ and so $$\beta = R_0 (\gamma + \mu) / N.$$
@@ -253,7 +253,7 @@ These can also be viewed by calling `get_params(model = "SISbirths")`.
 
 `model = "SIRS"`
 
-The SIRS model is similar to the SIR model in that individuals become immune to the disease once they recover. However, instead of remainining immune for life (i.e. staying in the $R$ class), they can instead lose this immunity (at rate $\delta$) and re-enter the susceptible class. The equations are given by
+The SIRS model is similar to the SIR model in that individuals become immune to the disease once they recover. However, instead of remaining immune for life (i.e. staying in the $R$ class), they can instead lose this immunity (at rate $\delta$) and re-enter the susceptible class. The equations are given by
 
 $$\begin{align*}
 \frac{dS}{dt} &= -\beta S I + \delta R\\
