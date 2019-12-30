@@ -62,6 +62,16 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         stop("Missing parameter vector 'parm0'")
     }
 
+    if (!is.null(neweqns) & ( is.null(parm_min))) {
+        warning("Missing parameter vector 'parm_min': using 0.5 * parm0 as default.")
+        parm_min <- parm0 * 0.5
+    }
+
+    if (!is.null(neweqns) & ( is.null(parm_max))) {
+        warning("Missing parameter vector 'parm_max': using 1.5 * parm0 as default.")
+        parm_max <- parm0 * 1.5
+    }
+
     if (is.null(names(parm_min)) | is.null(names(parm_max)) | is.null(names(parm0))) {
         stop("parm0, parm_min, and parm_max must be named vectors.")
     }
@@ -71,28 +81,23 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         warning("Could not find names of parameters for interactive menu ('parm_names'). Using names of 'parm0' instead.")
     }
 
-    if (!is.null(neweqns) & ( is.null(parm_min))) {
-        parm_names <- names(parm0)
-        stop("Missing parameter vector 'parm_min'")
+    # Check parameters appear in the same order in all vectors
+    if ( !( all(sapply(list(names(parm0), names(parm_min), names(parm_max)), function(x) x == names(parm0)))) ){
+        stop("The parameters in parm0, parm_min, and parm_max must have the same names, and appear in the same order.")
     }
 
-    if (!is.null(neweqns) & ( is.null(parm_max))) {
-        parm_names <- names(parm0)
-        stop("Missing parameter vector 'parm_max'")
+    # Check parameter values
+    if (any(parm_min >= parm_max)) {
+        stop("All entries in parm_min must be less than their corresponding entries in parm_max.")
     }
 
-    if (any(parm_min > parm_max)) {
-        warning("All entries in parm_min must be less than their corresponding entries in parm_max.")
+    if (any(parm0 > parm_max) | any(parm0 < parm_min)) {
+        warning("All entries in parm0 should be within the bounds of their corresponding entries in parm_min, parm_max.")
     }
 
     parm0 <- signif(parm0, sigfigs)
     parm_min <- signif(parm_min, sigfigs)
     parm_max <- signif(parm_max, sigfigs)
-
-    # Check parameters appear in the same order in all vectors
-    if ( !( all(sapply(list(names(parm0), names(parm_min), names(parm_max)), function(x) x == names(parm0)))) ){
-        stop("the parameters in parm0, parm_names, parm_min, and parm_max must appear in the same order.")
-    }
 
 
     # Get initial conditions
