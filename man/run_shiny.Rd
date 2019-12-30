@@ -6,8 +6,8 @@
 \usage{
 run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
   timestep = 1, tmax = 365, parm0 = NULL, parm_names = NULL,
-  parm_min = NULL, parm_max = NULL, sigfigs = 4, linesize = 1.2,
-  textsize = 14, ...)
+  parm_min = NULL, parm_max = NULL, sigfigs = 4, showtable = TRUE,
+  linesize = 1.2, textsize = 14, ...)
 }
 \arguments{
 \item{model}{name of the model to be solved. Examples of built-in models are: "SIR", "SIR vaccination". Default is "SIR".}
@@ -31,6 +31,8 @@ run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
 \item{parm_max}{named numeric vector of maximum parameter values.}
 
 \item{sigfigs}{number of significant figures to round parameter input vectors. Default is 4.}
+
+\item{showtable}{logical TRUE/FALSE. Should the table of transformed parameters be shown? Applies only to built-in models. Default is TRUE.}
 
 \item{linesize}{numeric value for line width in ggplot output. Default is 1.2.}
 
