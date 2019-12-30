@@ -12,10 +12,21 @@
 #'
 solve_eqns <- function(eqns, ics, times, parms){
 
-    soln <- deSolve::lsoda(y = ics,
-                    times = times,
-                    func = eqns,
-                    parms = parms)
+    trySolve <- tryCatch(deSolve::lsoda(y = ics,
+                                   times = times,
+                                   func = eqns,
+                                   parms = parms),
+                    error = function(e) e,
+                    warning = function(w) w)
+
+    if (inherits(trySolve, "condition")) {
+        stop("ODE solutions are unreliable. Check model attributes e.g. equations, parameterization, and initial conditions.")
+    } else {
+        soln <- deSolve::lsoda(y = ics,
+                               times = times,
+                               func = eqns,
+                               parms = parms)
+    }
 
     output <- data.frame(soln) %>% tbl_df() %>%
         tidyr::gather(variable, value, 2:ncol(.))
