@@ -32,7 +32,7 @@ run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
 
 \item{sigfigs}{number of significant figures to round parameter input vectors. Default is 4.}
 
-\item{showtable}{logical TRUE/FALSE. Should the table of transformed parameters be shown? Applies only to built-in models. Default is TRUE.}
+\item{showtable}{logical TRUE/FALSE. Should the table of transformed parameters be shown? Only applies to built-in models. Default is TRUE.}
 
 \item{linesize}{numeric value for line width in ggplot output. Default is 1.2.}
 

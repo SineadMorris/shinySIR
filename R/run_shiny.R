@@ -12,7 +12,7 @@
 #' @param parm_min named numeric vector of minimum parameter values.
 #' @param parm_max named numeric vector of maximum parameter values.
 #' @param sigfigs number of significant figures to round parameter input vectors. Default is 4.
-#' @param showtable logical TRUE/FALSE. Should the table of transformed parameters be shown? Applies only to built-in models. Default is TRUE.
+#' @param showtable logical TRUE/FALSE. Should the table of transformed parameters be shown? Only applies to built-in models. Default is TRUE.
 #' @param linesize numeric value for line width in ggplot output. Default is 1.2.
 #' @param textsize numeric value for textsize in ggplot output. Default is 12.
 #' @param ... extra arguments to be passed through to ggplot scale_colour_discrete e.g. 'labels' to change the legend names.
