@@ -37,9 +37,13 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
                       linesize = 1.2, textsize = 14, ...
                       ){
 
-    if (exists(model) & is.null(neweqns)){
+    # Get eqns & display name
+    name <- model
+
+    if (exists(model) & is.null(neweqns)) {
         eqns <- get(model, mode = "function")
-    } else if (exists(model) & !is.null(neweqns)){
+        name <- get_name(model)
+    } else if (exists(model) & !is.null(neweqns)) {
         warning("Your model name matches one of the built-in models. You can rename it using the 'model' argument.")
         eqns <- neweqns
     } else if (!exists(model) & is.null(neweqns)) {
@@ -112,9 +116,10 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         stop("ics must be a named vector.")
     }
 
+
     # User Interface (UI)
     ui <- pageWithSidebar(
-        headerPanel(paste("Interactive model:", model)),
+        headerPanel(paste("Interactive model:", name)),
         sidebarPanel(
             lapply(seq_along(parm0),
                    function(x) sliderInput(inputId = names(parm0)[x], label = parm_names[x],

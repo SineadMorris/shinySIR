@@ -8,12 +8,12 @@ get_ics <- function(model){
 
     ics <- NULL
 
-    ## SIR variants -------------------
-
+    # SIR variants
     if(substr(model, start = 1, stop = 3) == "SIR" ){
         ics <- c(S = 9999, I = 1, R = 0)
     }
 
+    # Other
     if(substr(model, start = 1, stop = 3) == "SIS" ){
         ics <- c(S = 9999, I = 1)
     }
