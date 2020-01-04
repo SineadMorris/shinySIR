@@ -36,7 +36,7 @@ run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
 
 \item{linesize}{numeric value for line width in ggplot output. Default is 1.2.}
 
-\item{textsize}{numeric value for textsize in ggplot output. Default is 12.}
+\item{textsize}{numeric value for textsize in ggplot output. Default is 14.}
 
 \item{...}{extra arguments to be passed through to ggplot scale_colour_discrete e.g. 'labels' to change the legend names.}
 }
