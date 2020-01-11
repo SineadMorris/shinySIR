@@ -110,8 +110,8 @@ seirs.app <- shinyApp(
             geom_line(aes(x = time, y = R, colour = "dR"), size = 1, alpha = 0.7) +
             geom_line(aes(x = time, y = E * 50, colour = "bE"), size = 1, alpha = 0.7) +
             geom_line(aes(x = time, y = I * 50, colour = "cI"), size = 1, alpha = 0.7) +
-            scale_y_continuous("Fraction S / R", limits = c(0, 1),
-                               sec.axis = sec_axis(~./50, name = "Fraction E / I")) +
+            scale_y_continuous("Fraction S and R", limits = c(0, 1),
+                               sec.axis = sec_axis(~./50, name = "Fraction E and I")) +
             scale_x_continuous("Time") +
             scale_colour_discrete("Compartment", labels = c("S", "E", "I", "R")) +
             theme_bw() + mytheme + theme(legend.position = "top")

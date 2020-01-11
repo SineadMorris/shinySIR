@@ -1,4 +1,7 @@
 #' Launch a shiny-app simulating the seasonal SEIR model
+#'
+#' #' This launches an app running the SEIR model i.e. a model incorporating latency and seasonal forcing in transmission.
+#'
 #' @details
 #' Launch app for details
 #' @export
@@ -87,8 +90,8 @@ seir.app <- shinyApp(
               geom_line(aes(x = time, y = R, colour = "dR"), size = 1, alpha = 0.7) +
               geom_line(aes(x = time, y = E * 100, colour = "bE"), size = 1, alpha = 0.7) +
               geom_line(aes(x = time, y = I * 100, colour = "cI"), size = 1, alpha = 0.7) +
-              scale_y_continuous("Fraction S / R", limits = c(0, 1),
-                                 sec.axis = sec_axis(~./100, name = "Fraction E / I")) +
+              scale_y_continuous("Fraction S and R", limits = c(0, 1),
+                                 sec.axis = sec_axis(~./100, name = "Fraction E and I")) +
               scale_x_continuous("Time") +
               scale_colour_discrete("Compartment", labels = c("S", "E", "I", "R")) +
               theme_bw() + mytheme + theme(legend.position = "top")

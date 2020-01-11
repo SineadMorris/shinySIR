@@ -9,7 +9,7 @@
 seir.app
 }
 \description{
-Launch a shiny-app simulating the seasonal SEIR model
+#' This launches an app running the SEIR model i.e. a model incorporating latency and seasonal forcing in transmission.
 }
 \details{
 Launch app for details

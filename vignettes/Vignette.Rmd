@@ -71,7 +71,7 @@ library(shinySIR)
 
 ### Model specification
 
-A number of common models are supplied with the package, including the SIR, SIRS, and SIS models. These can be accessed using the `model` argument, as shown above for the SIR model. These built-in models are parameterized using $R_0$ and the infectious period ($1/\gamma$), since these may be more intuitive for new students than the slightly abstract transmission rate ($\beta$) and recovery rate ($\gamma$). The values for $\beta$ and $\gamma$ are calculated from the other parameters and printed in a table below the graph (as shown in the SIR example above). A comprehensive description of all built-in models is given below. Brief information can also be obtained by calling `default_models()`.
+A number of common models are supplied with the package, including the SIR, SIRS, and SIS models. They can be accessed using the `model` argument, as shown above for the SIR model. These built-in models are parameterized using $R_0$ and the infectious period ($1/\gamma$), since these may be more intuitive for new students than the slightly abstract transmission rate ($\beta$) and recovery rate ($\gamma$). The values for $\beta$ and $\gamma$ are calculated from the other parameters and printed in a table below the graph (as shown in the SIR example above). A comprehensive description of all built-in models is given below. Brief information can also be obtained by calling `default_models()`.
 
 
 ### User-defined models
@@ -324,6 +324,17 @@ The default parameter arguments are:
 * `parm_max = c(R0 = 20, Ip = 21, Rp = 30 * 365, mu = round(10/365, 3), p = 1)`
             
 These can also be viewed by calling `get_params(model = "SIRSvaccination")`.
+
+
+### More detailed examples
+
+There are also two more detailed examples that include phase plane visualization: the seasonal SEIR model can be run by typing `seir.app`; and the SEIRS model can be run with `seirs.app`.
+
+* `seir.app`: The SEIR model is similar to the SIR model, with an extra compartment for latent infection i.e. once infected, there is a delay (called the 'latent' or 'exposed' phase) in which individuals are infected but not yet infectious. Seasonal forcing in transmission is incorporated using a cosine function. Equations can be viewed by running the app.
+
+* `seirs.app`: The SEIRS model is similar to the SEIR model. However, instead of remaining immune for life, individuals can lose immunity and re-enter the susceptible class. Equations can be viewed by running the app.
+
+
 
 ## References
 
