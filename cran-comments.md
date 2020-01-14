@@ -2,7 +2,7 @@
 
 This is a resubmission. In response to the initial submission comments I have:
 
-* written the package name in single quotes in the DESCRIPTION file
+* written the package name in single quotes in the DESCRIPTION file (i.e. 'shinySIR')
 * changed the Vignette title to 'shinySIR: Interactive plotting for infectious disease models'
  
  
@@ -26,12 +26,11 @@ Maintainer: 'Sinead E. Morris <sinead.morris@columbia.edu>'
 New submission
 
 Possibly mis-spelled words in DESCRIPTION:
-  Bjornstad (12:619)
-  ODEs (12:319)
-  Rohani (12:575)
-  shinySIR (12:286)
+  ODEs (12:321)
+  Bjornstad (12:621)
+  Rohani (12:577)
   
-Response: 'Bjornstad' and 'Rohani' are author surnames; 'ODEs' is an abbreviation for ordinary differential equations (explained earlier in the Description heading); and 'shinySIR' is the package name.
+Response: 'ODEs' is an abbreviation for ordinary differential equations (explained earlier in the Description heading), and 'Bjornstad' and 'Rohani' are author surnames.
 
 
 ## Downstream dependencies
