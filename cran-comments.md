@@ -1,3 +1,11 @@
+## Resubmission
+
+This is a resubmission. In response to the initial submission comments I have:
+
+* written the package name in single quotes in the DESCRIPTION file
+* changed the Vignette title to 'shinySIR: Interactive plotting for infectious disease models'
+ 
+ 
 ## Test environments
 
 * OS X High Sierra 10.13.6 local install, R 3.5.3

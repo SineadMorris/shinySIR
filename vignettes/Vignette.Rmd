@@ -1,5 +1,5 @@
 ---
-title: "Vignette"
+title: "shinySIR: Interactive plotting for infectious disease models"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Vignette}
