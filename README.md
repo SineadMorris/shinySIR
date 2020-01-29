@@ -28,7 +28,13 @@ If you encounter any bugs related to this package please contact the author dire
 Quick start example
 -------------------
 
-To install the package from Github, first install and load `devtools`, then install `shinySIR` as follows
+The package can be installed from CRAN by running
+
+``` r
+install.packages("shinySIR")
+```
+
+To instead install from Github, first install and load `devtools`, then install `shinySIR` as follows
 
 ``` r
 install.packages("devtools")
