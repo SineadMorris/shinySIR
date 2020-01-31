@@ -29,7 +29,7 @@ If you encounter any bugs related to this package please contact the author dire
 
 Version 0.1.1
 
--   Added flexibility in plotting appearance: axes labels and legend titles can now be customized using the following arguments: `xlabel`, `ylabel`, and `legend_title`.
+-   Added flexibility in plotting appearance: axis labels and legend titles can now be customized using the following arguments: `xlabel`, `ylabel`, and `legend_title`.
 
 Quick start example
 -------------------
