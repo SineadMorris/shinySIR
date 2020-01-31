@@ -5,7 +5,8 @@
 \title{Plot model output.
 This function plots the output of a fitted model data frame.}
 \usage{
-plot_model(output, linesize, textsize, levels, ...)
+plot_model(output, linesize, textsize, xlabel, ylabel, legend_title,
+  levels, ...)
 }
 \arguments{
 \item{output}{data frame output from solve_eqns().}
@@ -13,6 +14,12 @@ plot_model(output, linesize, textsize, levels, ...)
 \item{linesize}{numeric value for line width in ggplot.}
 
 \item{textsize}{numeric value for textsize in ggplot.}
+
+\item{xlabel}{character string for x axis label.}
+
+\item{ylabel}{character string for y axis label.}
+
+\item{legend_title}{character string for legend title.}
 
 \item{levels}{character vector of the variable names in the order they should be plotted. Default is to obtain the order from the initial conditions vector 'ics'.}
 

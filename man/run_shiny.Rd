@@ -7,7 +7,8 @@
 run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
   timestep = 1, tmax = 365, parm0 = NULL, parm_names = NULL,
   parm_min = NULL, parm_max = NULL, sigfigs = 4, showtable = TRUE,
-  linesize = 1.2, textsize = 14, ...)
+  linesize = 1.2, textsize = 14, xlabel = "Time",
+  ylabel = "Number of individuals", legend_title = "Compartment", ...)
 }
 \arguments{
 \item{model}{name of the model to be solved. Examples of built-in models are: "SIR", "SIR vaccination". Default is "SIR".}
@@ -37,6 +38,12 @@ run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
 \item{linesize}{numeric value for line width in ggplot output. Default is 1.2.}
 
 \item{textsize}{numeric value for textsize in ggplot output. Default is 14.}
+
+\item{xlabel}{character string for x axis plotting label. Default is "Time".}
+
+\item{ylabel}{character string for y axis plotting label. Default is "Number of individuals".}
+
+\item{legend_title}{character string for legend title. Default is "Compartment".}
 
 \item{...}{extra arguments to be passed through to ggplot scale_colour_discrete e.g. 'labels' to change the legend names.}
 }

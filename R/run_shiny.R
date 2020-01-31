@@ -15,6 +15,9 @@
 #' @param showtable logical TRUE/FALSE. Should the table of transformed parameters be shown? Only applies to built-in models. Default is TRUE.
 #' @param linesize numeric value for line width in ggplot output. Default is 1.2.
 #' @param textsize numeric value for textsize in ggplot output. Default is 14.
+#' @param xlabel character string for x axis plotting label. Default is "Time".
+#' @param ylabel character string for y axis plotting label. Default is "Number of individuals".
+#' @param legend_title character string for legend title. Default is "Compartment".
 #' @param ... extra arguments to be passed through to ggplot scale_colour_discrete e.g. 'labels' to change the legend names.
 #' @return data frame of model solutions in long format.
 #' @import shiny
@@ -34,7 +37,9 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
                       parm_max = NULL,
                       sigfigs = 4,
                       showtable = TRUE,
-                      linesize = 1.2, textsize = 14, ...
+                      linesize = 1.2, textsize = 14,
+                      xlabel = "Time", ylabel = "Number of individuals",
+                      legend_title = "Compartment", ...
                       ){
 
     # Get eqns & display name
@@ -154,7 +159,7 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
             ODEoutput <- solve_eqns(eqns, ics, times = times_vector, parms = parms_vector)
 
             # Plot output
-            plot_model(ODEoutput, linesize, textsize, levels = names(ics), ...)
+            plot_model(ODEoutput, linesize, textsize, xlabel, ylabel, legend_title, levels = names(ics), ...)
         })
 
         output$table1 <- renderTable({

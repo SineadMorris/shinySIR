@@ -25,6 +25,12 @@ Citation information can be found with `citation("shinySIR")`.
 
 If you encounter any bugs related to this package please contact the author directly. Additional descriptions of the mathematical theory and package functionality can be found in the vignette. Further details on the mathematical theory can also be found in the references listed below \[1-4\].
 
+###### Recent updates
+
+Version 0.1.1
+
+-   Added flexibility in plotting appearance: axes labels and legend titles can now be customized using the following arguments: `xlabel`, `ylabel`, and `legend_title`.
+
 Quick start example
 -------------------
 
@@ -34,7 +40,7 @@ The package can be installed from CRAN by running
 install.packages("shinySIR")
 ```
 
-To instead install from Github, first install and load `devtools`, then install `shinySIR` as follows
+To install the most recent version from Github, first install and load `devtools`, then install `shinySIR` as follows
 
 ``` r
 install.packages("devtools")
