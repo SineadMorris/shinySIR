@@ -20,6 +20,7 @@ solve_eqns <- function(eqns, ics, times, parms){
                     warning = function(w) w)
 
     if (inherits(trySolve, "condition")) {
+        print(paste("deSolve error:", trySolve$message))
         stop("ODE solutions are unreliable. Check model attributes e.g. equations, parameterization, and initial conditions.")
     } else {
         soln <- deSolve::lsoda(y = ics,
