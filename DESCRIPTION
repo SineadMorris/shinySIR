@@ -2,7 +2,7 @@ Package: shinySIR
 Type: Package
 Title: Interactive Plotting for Mathematical Models of Infectious Disease Spread
 Version: 0.1.1
-Date: 2020-01-31
+Date: 2020-02-03
 Authors@R: c(person("Sinead E.", "Morris", role = c("aut", "cre"),
 		   email = "sinead.morris@columbia.edu",
 		   comment = c(ORCID = "0000-0001-8626-1698")),
