@@ -1,0 +1,49 @@
+citHeader("To cite shinySIR, please use:")
+
+citEntry(entry = "manual",
+  author = "Sinead E. Morris",
+  title = "shinySIR: Interactive Plotting for Mathematical Models of Infectious Disease Spread",
+  year = "2020",
+  note = "R package version 0.1.1",
+  url = "https://github.com/SineadMorris/shinySIR",
+  textVersion = "Sinead E. Morris (2020). shinySIR: Interactive Plotting for Mathematical Models of Infectious Disease Spread. R package version 0.1.1."
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
