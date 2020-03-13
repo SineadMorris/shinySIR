@@ -18,6 +18,7 @@
 #' @param xlabel character string for x axis plotting label. Default is "Time".
 #' @param ylabel character string for y axis plotting label. Default is "Number of individuals".
 #' @param legend_title character string for legend title. Default is "Compartment".
+#' @param slider_steps numeric vector of step size to include between slider input values. Should be NULL or a vector with an entry for each parameter input. Default is NULL.
 #' @param ... extra arguments to be passed through to ggplot scale_colour_discrete e.g. 'labels' to change the legend names.
 #' @return data frame of model solutions in long format.
 #' @import shiny
@@ -39,7 +40,8 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
                       showtable = TRUE,
                       linesize = 1.2, textsize = 14,
                       xlabel = "Time", ylabel = "Number of individuals",
-                      legend_title = "Compartment", ...
+                      legend_title = "Compartment",
+                      slider_steps = NULL, ...
                       ){
 
     # Get eqns & display name
@@ -128,7 +130,8 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         sidebarPanel(
             lapply(seq_along(parm0),
                    function(x) sliderInput(inputId = names(parm0)[x], label = parm_names[x],
-                                           value = parm0[x], min = parm_min[x], max = parm_max[x])
+                                           value = parm0[x], min = parm_min[x], max = parm_max[x],
+                                           step = slider_steps[x])
                    )
         ),
         mainPanel(
