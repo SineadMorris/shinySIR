@@ -2,3 +2,8 @@ language: r
 os:
 - linux
 - osx
+
+script:
+  - |
+    R CMD build .
+    travis_wait 20 R CMD check shinySIR*tar.gz
