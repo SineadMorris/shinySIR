@@ -6,7 +6,7 @@
 This function plots the output of a fitted model data frame.}
 \usage{
 plot_model(output, linesize, textsize, xlabel, ylabel, legend_title,
-  levels, ...)
+  levels, values, ...)
 }
 \arguments{
 \item{output}{data frame output from solve_eqns().}
@@ -23,7 +23,9 @@ plot_model(output, linesize, textsize, xlabel, ylabel, legend_title,
 
 \item{levels}{character vector of the variable names in the order they should be plotted. Default is to obtain the order from the initial conditions vector 'ics'.}
 
-\item{...}{extra arguments to be passed through to ggplot scale_colour_discrete e.g. 'labels' to change the legend names.}
+\item{values}{vector specifying manual color scale. Length must equal the number of model variables.}
+
+\item{...}{extra argument to be passed through to ggplot scale_colour_manual: use 'labels' to change the legend names}
 }
 \value{
 ggplot object

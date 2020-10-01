@@ -1,3 +1,10 @@
+Version 0.1.2
+================
+
+* Added flexibility in plotting appearance: colour scale can now be customized with the 'values' argument.
+* Modified default app title
+
+
 Version 0.1.1
 ================
 

@@ -9,7 +9,7 @@ run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
   parm_min = NULL, parm_max = NULL, sigfigs = 4, showtable = TRUE,
   linesize = 1.2, textsize = 14, xlabel = "Time",
   ylabel = "Number of individuals", legend_title = "Compartment",
-  slider_steps = NULL, ...)
+  slider_steps = NULL, values = NULL, ...)
 }
 \arguments{
 \item{model}{name of the model to be solved. Examples of built-in models are: "SIR", "SIR vaccination". Default is "SIR".}
@@ -48,7 +48,9 @@ run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
 
 \item{slider_steps}{numeric vector of step size to include between slider input values. Should be NULL or a vector with an entry for each parameter input. Default is NULL.}
 
-\item{...}{extra arguments to be passed through to ggplot scale_colour_discrete e.g. 'labels' to change the legend names.}
+\item{values}{vector specifying manual color scale (if desired). Length must equal the number of model variables.}
+
+\item{...}{extra argument to be passed through to ggplot scale_colour_manual: use 'labels' to change the legend names.}
 }
 \value{
 data frame of model solutions in long format.

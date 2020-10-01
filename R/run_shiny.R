@@ -19,7 +19,8 @@
 #' @param ylabel character string for y axis plotting label. Default is "Number of individuals".
 #' @param legend_title character string for legend title. Default is "Compartment".
 #' @param slider_steps numeric vector of step size to include between slider input values. Should be NULL or a vector with an entry for each parameter input. Default is NULL.
-#' @param ... extra arguments to be passed through to ggplot scale_colour_discrete e.g. 'labels' to change the legend names.
+#' @param values vector specifying manual color scale (if desired). Length must equal the number of model variables.
+#' @param ... extra argument to be passed through to ggplot scale_colour_manual: use 'labels' to change the legend names.
 #' @return data frame of model solutions in long format.
 #' @import shiny
 #' @export
@@ -41,7 +42,8 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
                       linesize = 1.2, textsize = 14,
                       xlabel = "Time", ylabel = "Number of individuals",
                       legend_title = "Compartment",
-                      slider_steps = NULL, ...
+                      slider_steps = NULL,
+                      values = NULL, ...
                       ){
 
     # Get eqns & display name
@@ -123,10 +125,22 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
         stop("ics must be a named vector.")
     }
 
+    # get default ggplot colours
+    if (is.null("values")) {
+        gghues <- seq(15, 375, length = length(ics) + 1)
+        values <- hcl(h = gghues, l = 65, c = 100)[1:length(ics)]
+    }
+
+    if (length(values) != (length(ics))) {
+        warning("The length of the manual colour scale vector ('values') must equal the number of model variables. Using default ggplot colours instead.")
+
+        gghues <- seq(15, 375, length = length(ics) + 1)
+        values <- hcl(h = gghues, l = 65, c = 100)[1:length(ics)]
+    }
 
     # User Interface (UI)
     ui <- pageWithSidebar(
-        headerPanel(paste("Interactive model:", name)),
+        headerPanel(name),
         sidebarPanel(
             lapply(seq_along(parm0),
                    function(x) sliderInput(inputId = names(parm0)[x], label = parm_names[x],
@@ -162,7 +176,7 @@ run_shiny <- function(model = "SIR", neweqns = NULL,
             ODEoutput <- solve_eqns(eqns, ics, times = times_vector, parms = parms_vector)
 
             # Plot output
-            plot_model(ODEoutput, linesize, textsize, xlabel, ylabel, legend_title, levels = names(ics), ...)
+            plot_model(ODEoutput, linesize, textsize, xlabel, ylabel, legend_title, levels = names(ics), values, ...)
         })
 
         output$table1 <- renderTable({

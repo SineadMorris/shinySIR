@@ -17,14 +17,14 @@ get_name <- function(model){
                       "SIRS",
                       "SIRSbirths",
                       "SIRSvaccination"),
-            Name = c("SIR",
-                     "SIR with demography",
-                     "SIR with vaccination",
-                     "SIS",
-                     "SIS with demography",
-                     "SIRS",
-                     "SIRS with demography",
-                     "SIRS with vaccination"),
+            Name = c("Interactive SIR model",
+                     "Interactive SIR model with demography",
+                     "Interactive SIR model with vaccination",
+                     "Interactive SIS model",
+                     "Interactive SIS model with demography",
+                     "Interactive SIRS model",
+                     "Interactive SIRS model with demography",
+                     "Interactive SIRS model with vaccination"),
             stringsAsFactors = FALSE
         )
 
