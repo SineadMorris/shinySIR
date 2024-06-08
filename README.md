@@ -27,6 +27,11 @@ If you encounter any bugs related to this package please contact the author dire
 
 ###### Recent updates
 
+Version 0.1.3
+
+-   Updated documentation for run_shiny() function.
+-   Removed depreciated dplyr functions.
+
 Version 0.1.2
 
 -   Added flexibility in plotting appearance: colour scale can now be customized with the 'values' argument.
