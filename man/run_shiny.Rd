@@ -4,15 +4,31 @@
 \alias{run_shiny}
 \title{Solve equations}
 \usage{
-run_shiny(model = "SIR", neweqns = NULL, ics = NULL, tstart = 0,
-  timestep = 1, tmax = 365, parm0 = NULL, parm_names = NULL,
-  parm_min = NULL, parm_max = NULL, sigfigs = 4, showtable = TRUE,
-  linesize = 1.2, textsize = 14, xlabel = "Time",
-  ylabel = "Number of individuals", legend_title = "Compartment",
-  slider_steps = NULL, values = NULL, ...)
+run_shiny(
+  model = "SIR",
+  neweqns = NULL,
+  ics = NULL,
+  tstart = 0,
+  timestep = 1,
+  tmax = 365,
+  parm0 = NULL,
+  parm_names = NULL,
+  parm_min = NULL,
+  parm_max = NULL,
+  sigfigs = 4,
+  showtable = TRUE,
+  linesize = 1.2,
+  textsize = 14,
+  xlabel = "Time",
+  ylabel = "Number of individuals",
+  legend_title = "Compartment",
+  slider_steps = NULL,
+  values = NULL,
+  ...
+)
 }
 \arguments{
-\item{model}{name of the model to be solved. Examples of built-in models are: "SIR", "SIR vaccination". Default is "SIR".}
+\item{model}{name of the model to be solved. Examples of built-in models are: "SIR", "SIRvaccination", "SIS". Call 'default_models()' to view the names of all built-in models along with a short description. Default model is "SIR".}
 
 \item{neweqns}{function specifying the equations of the user-defined model. Only to be used if a model is required that is not built-in. Default is NULL.}
 

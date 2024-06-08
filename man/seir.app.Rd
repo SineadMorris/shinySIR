@@ -4,7 +4,9 @@
 \name{seir.app}
 \alias{seir.app}
 \title{Launch a shiny-app simulating the seasonal SEIR model}
-\format{An object of class \code{shiny.appobj} of length 5.}
+\format{
+An object of class \code{shiny.appobj} of length 5.
+}
 \usage{
 seir.app
 }

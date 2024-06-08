@@ -5,8 +5,17 @@
 \title{Plot model output.
 This function plots the output of a fitted model data frame.}
 \usage{
-plot_model(output, linesize, textsize, xlabel, ylabel, legend_title,
-  levels, values, ...)
+plot_model(
+  output,
+  linesize,
+  textsize,
+  xlabel,
+  ylabel,
+  legend_title,
+  levels,
+  values,
+  ...
+)
 }
 \arguments{
 \item{output}{data frame output from solve_eqns().}

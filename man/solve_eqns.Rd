@@ -7,7 +7,7 @@
 solve_eqns(eqns, ics, times, parms)
 }
 \arguments{
-\item{eqns}{name of the model to be solved. Examples include: SIR and SIR vaccination.}
+\item{eqns}{name of the model to be solved. Examples include: SIR and SIRvaccination.}
 
 \item{ics}{named numeric vector specifying the initial conditions i.e. the initial values of all model variables.}
 
