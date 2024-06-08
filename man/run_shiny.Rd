@@ -28,7 +28,7 @@ run_shiny(
 )
 }
 \arguments{
-\item{model}{name of the model to be solved. Examples of built-in models are: "SIR", "SIRvaccination", "SIS". Call 'default_models()' to view the names of all built-in models along with a short description. Default model is "SIR".}
+\item{model}{name of the model to be solved. Examples of built-in models are: "SIR", "SIRS", "SIS", "SIRvaccination". Call 'default_models()' to view the names of all built-in models along with a short description. Default model is "SIR".}
 
 \item{neweqns}{function specifying the equations of the user-defined model. Only to be used if a model is required that is not built-in. Default is NULL.}
 
