@@ -1,7 +1,7 @@
 #' Solve equations
 #'
 #' This function solves an ODE model using 'deSolve' and returns the output as a data frame.
-#' @param model name of the model to be solved. Examples of built-in models are: "SIR", "SIR vaccination". Default is "SIR".
+#' @param model name of the model to be solved. Examples of built-in models are: "SIR", "SIRvaccination", "SIS" (default is "SIR"). Call 'default_models()' to view the names of all built-in models along with a short description.
 #' @param neweqns function specifying the equations of the user-defined model. Only to be used if a model is required that is not built-in. Default is NULL.
 #' @param ics named numeric vector specifying the initial conditions i.e. the initial values of all model variables. Default is c(S = 9999, I = 1, R = 0) for the SIR model.
 #' @param tstart numerical value of form c(tmin, tmax) indicating the time to start simulations. Default value is 0.

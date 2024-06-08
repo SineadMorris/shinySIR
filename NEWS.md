@@ -1,3 +1,11 @@
+Version 0.1.3
+================
+
+* Updated documentation for run_shiny() function.
+* Removed depreciated dplyr functions.
+* Updated maintainer contact information.
+
+
 Version 0.1.2
 ================
 
